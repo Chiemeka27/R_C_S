@@ -62,113 +62,105 @@ function player(playerChoice) {
 player()
 
 */
-let choice = " ";
-function computerPlay(){
-    let num = randomNumber = Math.floor(Math.random()*3) + 1;
-  
-    if (num == 1) {
-        return choice = "rock"
-    } else if ( num == 2) {
-        return choice = "paper"
-    } else  if (num == 3){
-        return choice = "scissors"
-    }
-    
+
+const button1 = document.querySelector('#btn1')
+const button2 = document.querySelector('#btn2')
+const button3 = document.querySelector('#btn3')
+
+button1.addEventListener(onclick, ()  => {
+
+
+     round()
+
+     while (playerChoice != "quit") {
+          playerChoice = prompt(
+               "Please enter Rock, Paper or Scissors or type 'quit' to quit",
+          ).toLowerCase();
+     
+          input = randomNumber = Math.floor(Math.random() * 3);
+     
+          result = round(computerPlay(input), player(playerChoice));
+     
+          playerChoice == "quit" ? alert("thank exe for playing :") : alert(result);
+          console.log(result);
+     }
+     
+} )
+
+button2.addEventListener(onclick, computerPlay())
+
+
+
+
+
+
+
+
+
+
+
+let playerChoice;
+
+function player(playerChoice) {
+	let decision = " ";
+	if (playerChoice == "rock") {
+		decision = "rock";
+	} else if (playerChoice == "paper") {
+		decision = " paper";
+	} else {
+		decision = "scissors";
+	}
+	return decision;
 }
-let decision = " "
-function player() {
-    let num = randomNumber = Math.floor(Math.random()*3) + 1;
-    
-    if (num == 1) {
-        return decision = "rock"
-    } else if (num == 2) {
-        return decision = "paper"
-    } else  if ( num == 3){
-        return decision = "scissors"
-    }
+
+let input = (randomNumber = Math.floor(Math.random() * 3));
+function computerPlay(input) {
+	let choice = "";
+	if (input == 0) {
+		choice = "rock";
+	} else if (input == 1) {
+		choice = " paper";
+	} else {
+		choice = "scissors";
+	}
+	return choice;
+}
+function round(comp, play) {
+	if (play == "rock" && comp == "scissors") {
+		final = "You win, rock beats scissors";
+	} else if (play == "rock" && comp == "paper") {
+		final = "You lose, paper beats rock";
+	} else if (play == "rock" && comp == "rock") {
+		final = "You draw both rock";
+	} else if (play == "paper" && comp == "scissors") {
+		final = "You lose, scissor beats paper ";
+	} else if (play == "paper" && comp == "rock") {
+		final = "You win, paper beats rock";
+	} else if (play == "paper" && comp == "paper") {
+		final = "draw, both paper";
+	} else if (play == "scissors" && comp == "scissors") {
+		final = "You draw both scissors";
+	} else if (play == "scissors" && comp == "rock") {
+		final = "You lose, rock beats scissors";
+	} else if (play == "scissors" && comp == "paper") {
+		final = "You win, scissors beats paper";
+	} else {
+		final = "No winner, error";
+	}
+	return final;
 }
 
+while (playerChoice != "quit") {
+	playerChoice = prompt(
+		"Please enter Rock, Paper or Scissors or type 'quit' to quit",
+	).toLowerCase();
 
+	input = randomNumber = Math.floor(Math.random() * 3);
 
+	result = round(computerPlay(input), player(playerChoice));
 
-
-
-
-
- /*
-
-function me( ){
-    
-if ( playerSelection == "rock"  &&  computerSelection == "scissors") {
-    return  " You win, rock beats scissors";
-} 
-else if ( playerSelection == "rock" &&  computerSelection == "paper") {
-        return "You lose, paper beats rock";
-} 
-else if ( playerSelection == "rock" &&  computerSelection == "rock") {
-    return "no winner,rr";
-} 
-else if ( playerSelection == "scissors"  &&  computerSelection == "rock" ) {
-        return  "You lose, rock beats scissors";
-} 
-else if ( playerSelection == "scissors"  &&  computerSelection == "paper" ) {
-       return  "You win, scissors beats paper";
-} 
-else if ( playerSelection == "scissors"  &&  computerSelection == "scissors" ) {
-    return  "no winner, ss";
-} 
-else if ( playerSelection == "paper"  &&  computerSelection == "rock" ) {
-        return "You win, paper beats rock";
-} 
-else if ( playerSelection == "paper"  &&  computerSelection == "scissors") {
-       return  "You lose, scissors beats paper ";
-} 
-else if ( playerSelection == "paper"  &&  computerSelection == "paper" ) {
-    return  "no winner, pp";
-} 
-else {
-    console.log("nahhhhhh")
+	playerChoice == "quit" ? alert("thank exe for playing :") : alert(result);
+	console.log(result);
 }
-}
-*/
-function playRound(playerSelection, computerSelection) {
-    if ( playerSelection == "rock"  &&  computerSelection == "scissors") {
-        return  " You win, rock beats scissors";
-    } 
-    else if ( playerSelection == "rock" &&  computerSelection == "paper") {
-            return "You lose, paper beats rock";
-    } 
-    else if ( playerSelection == "rock" &&  computerSelection == "rock") {
-        return "no winner,rr";
-    } 
-    else if ( playerSelection == "scissors"  &&  computerSelection == "rock" ) {
-            return  "You lose, rock beats scissors";
-    } 
-    else if ( playerSelection == "scissors"  &&  computerSelection == "paper" ) {
-           return  "You win, scissors beats paper";
-    } 
-    else if ( playerSelection == "scissors"  &&  computerSelection == "scissors" ) {
-        return  "no winner, ss";
-    } 
-    else if ( playerSelection == "paper"  &&  computerSelection == "rock" ) {
-            return "You win, paper beats rock";
-    } 
-    else if ( playerSelection == "paper"  &&  computerSelection == "scissors") {
-           return  "You lose, scissors beats paper ";
-    } 
-    else if ( playerSelection == "paper"  &&  computerSelection == "paper" ) {
-        return  "no winner, pp";
-    } 
-    else {
-        console.log("nahhhhhh")
-    }
 
-
-
-  }
- 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound())
-console.log(playerSelection);
-console.log(computerSelection)
+console.log("Thank exe for playing :");
